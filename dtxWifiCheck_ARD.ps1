@@ -2,8 +2,9 @@
 WHO: BrEdPa
 WHAT: PowerShell script to detect if an endpoint has a wireless connection disabled
 WHEN: August 2024
-WHERE: LCHS
-WHY: exam room equipment needs to only have a physical connection enabled; an open Wi-Fi connection can be exploited by attackers posing as patients. This script confirms if all non-ethernet connections are disabled for endpoints in exam rooms.
+WHERE: ****
+WHY: **** equipment needs to only have a physical connection enabled; an open Wi-Fi connection can be exploited by attackers ****. 
+    This script confirms if all non-ethernet connections are disabled for endpoints in ****.
 HOW: Get all network adapters, check for an adapter "named Wi-Fi" and if it is disconnected. If yes, report compliance; if no, proceed with remediation.
 #>
 
