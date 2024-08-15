@@ -1,0 +1,1 @@
+Hello! This is a repository for scripts I've used in my 9-5 job. Most of the details have been scrubbed, but they function as intended for the most part. If you stumble on something that helps you, let me know! Cheers y'all!
