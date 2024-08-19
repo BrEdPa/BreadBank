@@ -15,7 +15,9 @@ full path for CSV, which needs the header "endpoints" for default. Advise using 
 Image a batch of laptops: Create the csv with the names of all the computers in your batch, then save the path. Run the app, selecting the first option. After the computers image and are in your New Computers OU, run the app again with the same CSV, but select the second option. 
 
 .NOTES
-This isn't elegant per se, but it does get the job done - three jobs, actually.
+This could be prettier, but it does get the job done - three jobs, actually. The 'joke' for the end of the script doesn't quite work as intended, as it can't capture anything special, but that's parsley on the plate afaic.
+Easiest way to use this is by making a notepad file, creating the header and EXACT NAMES OF THE OBJECTS, then saving as a .csv instead of using Excel/Sheets. An example doc is available upon request.
+Also make sure your paths/distinguished names are accurate past your OU, or otherwise modify as needed for the job.
 #>
 
 # Function to add endpoints present in AD to a specific SEC group
@@ -76,7 +78,7 @@ function moveComputersToNewContainer {
     $executeFunction = Read-Host "Do you want to add" $targetEndpoints.count "objects to a new container? (Y/N)"
     IF ($executeFunction -eq "Y" -or $executeFunction -eq "y") {
         $targetOU = Read-Host "Enter the three character ID for the location of your target site's hybridJoin OU"
-        $distinguishedName = "OU=HybridJoin,OU=Equipment,OU=OU $targetOU,OU=LEGACY,DC=legacy,DC=local"
+        $distinguishedName = "OU=HybridJoin,OU=Equipment,OU=OU $targetOU"#,OU=****,DC=****,DC=local"
         forEach ($endpoint in $targetEndpoints) {
             Get-ADComputer $endpoint | Move-ADObject -TargetPath $distinguishedName
         }
